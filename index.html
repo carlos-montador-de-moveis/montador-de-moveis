@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carlos Montador de Móveis</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Carlos Montador de Móveis</h1>
+  <p>Rapidez, Experiência, Garantia</p>
+  <img src="assets/header-cover.jpg" class="header-cover" alt="Capa">
+  <img src="assets/perfil.jpg" alt="Carlos" class="header-img">
+</header>
+
+<div class="menu-header">
+  <button onclick="scrollToSection('avaliacoes')">Elogios</button>
+  <button onclick="scrollToSection('moveis')">Móveis</button>
+  <button onclick="scrollToSection('orcamento')">Orçamento</button>
+</div>
+
+<section id="avaliacoes">
+  <h2>Elogios <span>⭐⭐⭐⭐⭐</span></h2>
+  <div class="avaliacoes">
+    <div class="avaliacao-card">
+      <img src="assets/avaliacao1.jpg" alt="Cliente">
+      <div class="conteudo">
+        <div class="nome">Robson</div>
+        <div class="comentario">Excelente serviço! Muito rápido e profissional... <span class="ver-mais" data-msg="Excelente serviço! Muito rápido e profissional, super recomendo!">ver mais</span></div>
+      </div>
+    </div>
+    <div class="avaliacao-card">
+      <img src="assets/avaliacao2.jpg" alt="Cliente">
+      <div class="conteudo">
+        <div class="nome">Marilene</div>
+        <div class="comentario">Atendimento impecável, equipe muito educada... <span class="ver-mais" data-msg="Atendimento impecável, equipe muito educada, cumpriram o prazo certinho!">ver mais</span></div>
+      </div>
+    </div>
+    <div class="avaliacao-card">
+      <img src="assets/avaliacao3.jpg" alt="Cliente">
+      <div class="conteudo">
+        <div class="nome">Ana</div>
+        <div class="comentario">Montagem perfeita e rápida... <span class="ver-mais" data-msg="Montagem perfeita e rápida, equipe super atenciosa!">ver mais</span></div>
+      </div>
+    </div>
+    <div class="avaliacao-card">
+      <img src="assets/avaliacao4.jpg" alt="Cliente">
+      <div class="conteudo">
+        <div class="nome">Leonardo</div>
+        <div class="comentario">Serviço de alta qualidade... <span class="ver-mais" data-msg="Serviço de alta qualidade, muito organizado!">ver mais</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="moveis">
+  <h2>Móveis Montados</h2>
+  <div class="moveis">
+    <div class="movel-card"><img src="assets/movel1.jpg" alt="Móvel"><p>Cozinha Planejada</p></div>
+    <div class="movel-card"><img src="assets/movel2.jpg" alt="Móvel"><p>Quarto Planejado</p></div>
+  </div>
+</section>
+
+<section id="orcamento">
+  <h2>Solicitar Orçamento</h2>
+  <form id="formOrcamento">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="telefone" placeholder="Telefone" required>
+    <input type="text" name="tipo" placeholder="Tipo de móvel" required>
+    <textarea name="mensagem" placeholder="Mensagem" rows="4"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<div class="botao-inicio" onclick="scrollToTop()">Início</div>
+
+<!-- Cards de notificações -->
+<div class="card-notificacao" id="cardNotif"></div>
+
+<!-- Mensagem de boas-vindas -->
+<div class="mensagem-bem-vindo" id="bemvindo">Seja bem-vindo! Solicite seu orçamento agora!</div>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/5511954558195" class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
+  <img src="assets/whatsapp.png" alt="WhatsApp">
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
