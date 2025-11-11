@@ -1,0 +1,126 @@
+/* ========================
+   RESET & BASE
+======================== */
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { background:#1c1c1c; color:#f0f0f0; line-height:1.5; font-size:1rem; }
+img { display:block; max-width:100%; height:auto; }
+
+/* ========================
+   HEADER
+======================== */
+header { position:relative; background:#2a2a2a; padding:1rem; text-align:center; overflow:hidden; }
+header h1 { font-size:1.6rem; margin-bottom:0.25rem; color:#d4af37; animation:fadeInDown 1.2s ease forwards; }
+header p { font-size:0.9rem; color:#ccc; margin-bottom:0.625rem; animation:fadeInDown 1.5s ease forwards; }
+.header-cover { width:100%; height:15vh; object-fit:cover; border-radius:0.375rem; position:relative; z-index:0; }
+.header-img { width:7rem; height:7rem; border-radius:50%; border:0.1875rem solid #d4af37; position:absolute; top:70%; left:50%; transform:translate(-50%,-50%); z-index:1; }
+
+/* ========================
+   MENU FLUTUANTE HEADER
+======================== */
+.menu-header { display:flex; justify-content:center; gap:0.625rem; background:#111; padding:0.375rem 0; position:sticky; top:0; z-index:1000; font-size:0.9rem; }
+.menu-header button { background:none; border:none; color:#f0f0f0; cursor:pointer; font-weight:bold; transition:0.3s; }
+.menu-header button:hover { color:#d4af37; }
+
+/* ========================
+   SECTIONS
+======================== */
+section { padding:1.25rem 1rem; text-align:center; }
+section h2 { font-size:1.4rem; color:#d4af37; margin-bottom:0.625rem; text-align:center; }
+section h2 span { font-size:1rem; margin-left:0.3125rem; }
+
+/* ========================
+   AVALIAÇÕES
+======================== */
+.avaliacoes { display:grid; grid-template-columns: repeat(auto-fit,minmax(10rem,1fr)); gap:0.625rem; justify-items:center; }
+.avaliacao-card { display:flex; align-items:flex-start; background:#2a2a2a; padding:1.25rem; border-radius:0.375rem; width:100%; max-width:12.5rem; }
+.avaliacao-card img { width:2.5rem; height:2.5rem; border-radius:50%; margin-right:0.5rem; }
+.avaliacao-card .conteudo { text-align:left; flex:1; }
+.avaliacao-card .nome { font-weight:bold; color:#d4af37; font-size:0.95rem; }
+.avaliacao-card .comentario { font-size:0.8rem; margin-top:0.1875rem; background:#333; padding:0.5rem; border-radius:0.25rem; max-height:6.25rem; overflow:hidden; position:relative; }
+.avaliacao-card .comentario span.ver-mais { cursor:pointer; color:#25d366; float:right; font-size:0.8rem; }
+
+/* ========================
+   MOVEIS
+======================== */
+.moveis { display:flex; flex-direction:column; gap:0.625rem; justify-items:center; align-items:center; }
+.movel-card { background:#2a2a2a; border-radius:0.375rem; overflow:hidden; width:90%; max-width:18.75rem; margin-bottom:0.625rem; }
+.movel-card img { width:100%; display:block; }
+.movel-card p { margin:0.5rem 0; color:#ccc; font-size:0.9rem; text-align:center; }
+
+/* ========================
+   FORMULÁRIO
+======================== */
+form { background:#2a2a2a; padding:1rem; border-radius:0.375rem; max-width:21.875rem; margin:0 auto; display:flex; flex-direction:column; gap:0.625rem; font-size:0.9rem; }
+form input, form textarea { padding:0.5rem; border-radius:0.3125rem; border:none; width:100%; background:#333; color:#f0f0f0; }
+form button { background:#25d366; color:#fff; border:none; padding:0.625rem; border-radius:0.375rem; font-weight:bold; cursor:pointer; transition:0.3s; }
+form button:hover { background:#20b857; }
+
+/* ========================
+   WHATSAPP FLUTUANTE
+======================== */
+.whatsapp-float {
+  position:fixed; width:3.125rem; height:3.125rem; bottom:1rem; right:1rem;
+  background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  z-index:999; box-shadow:0 0.1875rem 0.625rem rgba(0,0,0,0.3);
+}
+.whatsapp-float img { width:1.75rem; height:1.75rem; }
+
+/* ========================
+   MENSAGEM DE BOAS-VINDAS
+======================== */
+.mensagem-bem-vindo {
+  position:fixed;
+  bottom:5rem;
+  right:1rem;
+  color:white;
+  font-size:0.85rem;
+  font-weight:bold;
+  padding:0.5rem 0.75rem;
+  border-radius:0.5rem;
+  display:none;
+  z-index:1000;
+  transform:scale(0);
+  opacity:0;
+  animation-fill-mode:forwards;
+  text-shadow: 0 0 0.625rem black, 0 0 1.25rem black;
+}
+@keyframes entrarMsg {
+  0% {opacity:0; transform:scale(0);}
+  50% {opacity:1; transform:scale(1.2);}
+  100% {opacity:1; transform:scale(1);}
+}
+@keyframes sairMsg {
+  0% {opacity:1; transform:translateY(0);}
+  100% {opacity:0; transform:translateY(-3rem);}
+}
+
+/* ========================
+   CARDS DE NOTIFICAÇÃO
+======================== */
+.card-notificacao {
+  position:fixed;
+  bottom:5rem;
+  left:50%;
+  transform:translateX(-50%);
+  background:#25d366;
+  color:#fff;
+  padding:0.75rem 1rem;
+  border-radius:0.5rem;
+  font-weight:bold;
+  display:none;
+  z-index:10000;
+  max-width:90%;
+  text-align:center;
+  box-shadow:0 0.1875rem 0.625rem rgba(0,0,0,0.3);
+}
+
+/* ========================
+   BOTÃO INÍCIO
+======================== */
+.botao-inicio { margin-top:1.25rem; display:inline-block; background:#d4af37; color:#1c1c1c; padding:0.5rem 1rem; border-radius:0.375rem; cursor:pointer; font-weight:bold; font-size:0.9rem; }
+.botao-inicio:hover { background:#b7942f; }
+
+/* ========================
+   ANIMAÇÕES HEADER
+======================== */
+@keyframes fadeInDown { 0% {opacity:0; transform:translateY(-1.25rem);} 100% {opacity:1; transform:translateY(0);} }
