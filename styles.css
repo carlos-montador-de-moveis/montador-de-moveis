@@ -28,7 +28,7 @@ header p { font-size:1rem; color:#ccc; margin-bottom:1rem; }
   border-radius:50%; 
   border:4px solid #d4af37; 
   position:absolute; 
-  top:60%; /* <--- ALTERADO PARA 50% */
+  top:70%; /* <--- ALTERADO PARA 50% */
   left:50%; 
   transform:translate(-50%,-50%); 
   z-index:2; /* <--- Aumentei o z-index para garantir que fique sobre a capa */
