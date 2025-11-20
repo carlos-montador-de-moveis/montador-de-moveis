@@ -101,13 +101,13 @@ form.addEventListener('submit', e => {
             // Sucesso UX: Feedback na tela + Conversão WhatsApp
             form.reset();
             feedback.style.display = 'block';
-            feedback.innerHTML = '✅ Recebido! Abrindo WhatsApp para finalizar...';
+            feedback.innerHTML = '✅ Recebido! Abrindo WhatsApp para finalizar o orçamento Sênior...';
             
             setTimeout(() => {
                 const msgZap = `Olá Carlos! Me chamo ${objData.nome}. Solicitei um orçamento no site sobre: ${objData.tipo}.`;
                 window.open(`https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msgZap)}`, '_blank');
                 btnEnviar.disabled = false;
-                btnEnviar.innerText = "Enviar Pedido";
+                btnEnviar.innerText = "Enviar Pedido de Orçamento";
                 feedback.style.display = 'none';
             }, 2000);
         } else {
