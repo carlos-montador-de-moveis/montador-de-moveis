@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Configurar Boas-vindas
     setTimeout(mostrarBoasVindas, 4000);
+
+    // Nova Lógica de Animação de Scroll (Performance Otimizada)
+    setupScrollAnimations();
 });
 
 /* ========================
@@ -100,7 +103,6 @@ form.addEventListener('submit', e => {
         if(r.sucesso){
             // Sucesso UX: Feedback na tela + Conversão WhatsApp
             form.reset();
-            // REFORMULADO: Linguagem mais direta e amigável
             feedback.style.display = 'block';
             feedback.innerHTML = '✅ Recebido! Abrindo o WhatsApp do Carlos para combinarmos o serviço rapidinho...';
             
@@ -145,4 +147,39 @@ function mostrarBoasVindas(){
     const bemvindo = document.getElementById('bemvindo');
     bemvindo.style.display = 'block';
     bemvindo.style.animation = 'slideInUp 0.5s forwards';
+}
+
+/* ========================
+   LÓGICA ZERO-BUG: ANIMAÇÕES POR SCROLL (IntersectionObserver)
+======================== */
+function setupScrollAnimations() {
+    // Seleciona todos os elementos que devem ser animados ao entrar na tela
+    const elements = document.querySelectorAll('.secao-padrao, .secao-numeros, .secao-historia, .secao-orcamento, .numero-card, .movel-card, .avaliacao-card, .card-diferencial');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Adiciona a classe que ativa a animação CSS
+                entry.target.classList.add('visivel');
+                // Opcional: Para evitar que o Observer continue rodando, desconecte
+                // observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        // Configurações: aciona quando 10% do elemento está visível
+        threshold: 0.1 
+    });
+
+    elements.forEach(el => {
+        // Garante que o elemento tem a classe base de animação (opacidade 0, translateY 20px)
+        el.classList.add('animar-entrada');
+        
+        // Aplica delay para elementos dentro de grids
+        if (el.classList.contains('numero-card') || el.classList.contains('movel-card') || el.classList.contains('avaliacao-card') || el.classList.contains('card-diferencial')) {
+            // Este é um método mais avançado, mas para manter a simplicidade, usaremos a classe de delay padrão no CSS.
+            // Para grids, o CSS já lida com o transition delay (animar-delay-X)
+        }
+
+        observer.observe(el);
+    });
 }
