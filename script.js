@@ -161,8 +161,7 @@ function setupScrollAnimations() {
             if (entry.isIntersecting) {
                 // Adiciona a classe que ativa a animação CSS
                 entry.target.classList.add('visivel');
-                // Opcional: Para evitar que o Observer continue rodando, desconecte
-                // observer.unobserve(entry.target); 
+                // observer.unobserve(entry.target); // Deixei comentado para testes, mas é uma boa prática
             }
         });
     }, {
@@ -173,13 +172,6 @@ function setupScrollAnimations() {
     elements.forEach(el => {
         // Garante que o elemento tem a classe base de animação (opacidade 0, translateY 20px)
         el.classList.add('animar-entrada');
-        
-        // Aplica delay para elementos dentro de grids
-        if (el.classList.contains('numero-card') || el.classList.contains('movel-card') || el.classList.contains('avaliacao-card') || el.classList.contains('card-diferencial')) {
-            // Este é um método mais avançado, mas para manter a simplicidade, usaremos a classe de delay padrão no CSS.
-            // Para grids, o CSS já lida com o transition delay (animar-delay-X)
-        }
-
         observer.observe(el);
     });
 }
