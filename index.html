@@ -3,24 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#f0f4f8"> <title>Carlos Montador | Montagem de Móveis</title>
+  <meta name="theme-color" content="#f0f4f8">
+  <title>Carlos Montador | Montagem de Móveis</title>
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="hero-section">
+  <div class="header-bg-wrapper">
+    <img src="assets/header-cover.jpg" class="header-cover" alt="Capa de Serviços de Montagem">
+    <div class="header-overlay"></div>
+  </div>
+
   <div class="hero-content">
-    <img src="assets/perfil.jpg" alt="Foto de Carlos Montador" class="header-img">
+    <div class="perfil-wrapper">
+      <img src="assets/perfil.jpg" alt="Foto de Carlos Montador" class="header-img">
+      <div class="status-badge" title="Carlos está Online">
+        <span class="status-dot"></span>
+      </div>
+      <div class="selo-verificado">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span>Pro Verificado</span>
+      </div>
+    </div>
+
     <h1>Carlos Montador de Móveis</h1>
-    <p class="tagline">Montagem de móveis com <strong>experiência de anos</strong>! Rápido, caprichoso e com preço justo.</p>
+    <p class="tagline">Montagem profissional com <strong>experiência de anos</strong>! Rápido, limpo e com preço justo.</p>
     
     <a href="#orcamento" class="btn-destaque hero-cta" onclick="scrollToSection('orcamento')">
-      <span>Chamar no Orçamento Rápido</span>
+      <span>⚡ Chamar no Orçamento Rápido</span>
       <div class="btn-effect"></div>
     </a>
   </div>
-  <img src="assets/header-cover.jpg" class="header-cover" alt="Capa de Serviços de Montagem com Foco em Qualidade">
 </header>
 
 <nav class="menu-header sticky-nav" aria-label="Navegação principal">
@@ -71,31 +86,42 @@
 
   <div class="grid-diferenciais">
     <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">🛠️</div>
+      <div class="icone-dif-svg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+      </div>
       <h3>Ferramentas de Primeira</h3>
       <p>Uso as ferramentas certas (como nível a laser) para garantir que seu móvel fique firme, reto e não caia.</p>
     </div>
+    
     <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">🧹</div>
+      <div class="icone-dif-svg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 12h3v8h2v-6h2v6h9.3a2 2 0 0 0 2-2v-4l-2-2"></path><path d="M22 22l-5-10-5 10"></path><path d="M14 15l3 3"></path></svg>
+      </div>
       <h3>Deixo Tudo Limpinho</h3>
       <p>Respeito seu espaço. Trabalho de forma organizada e recolho o lixo e a sujeira depois que o serviço termina.</p>
     </div>
+
     <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">🛡️</div>
+      <div class="icone-dif-svg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      </div>
       <h3>Garantia no Serviço</h3>
       <p>Se deu algum problema na montagem, eu volto e arrumo! Ofereço garantia para você ficar tranquilo.</p>
     </div>
+
     <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">⏱️</div>
+      <div class="icone-dif-svg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      </div>
       <h3>Chego na Hora Combinada</h3>
-      <p>Seu tempo é importante. Cumpro o horário marcado e te aviso se acontecer algum imprevisto. Comunicação clara sempre!</p>
+      <p>Seu tempo é importante. Cumpro o horário marcado e te aviso se acontecer algum imprevisto.</p>
     </div>
   </div>
 </section>
 
 <section id="avaliacoes" class="secao-padrao bg-alternativo secao-independente">
   <h2>O Que Meus Vizinhos e Clientes Dizem 
-    <span class="stars-svg">
+    <span class="stars-svg" aria-label="5 estrelas">
       <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
       <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
       <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
