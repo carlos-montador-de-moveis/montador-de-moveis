@@ -222,3 +222,100 @@ form button{ background:var(--cor-principal); color:white; padding:12px; border-
 
 /* acessibilidade: foco visível */
 button:focus, a:focus, input:focus, textarea:focus{ outline:3px solid rgba(47,128,237,0.18); outline-offset:2px; border-radius:8px; }
+
+/* ============================
+   MELHORIAS DE CORES E UX
+   ============================ */
+
+/* NAV mais visível */
+.menu-header {
+  background: #ffffff;
+  border-bottom: 2px solid rgba(0,0,0,0.08);
+}
+
+.menu-header button {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.menu-header button:hover {
+  background: rgba(0,0,0,0.06);
+  color: var(--cor-destaque);
+}
+
+/* HISTÓRIA – texto com leitura corrigida */
+.texto-historia p {
+  background: rgba(255,255,255,0.55);
+  padding: 6px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(2px);
+}
+
+/* INPUTS — apenas linha inferior */
+form input,
+form textarea {
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0.18);
+  border-radius: 0;
+  padding: 12px 4px;
+  background: transparent;
+}
+
+form input:focus,
+form textarea:focus {
+  border-bottom: 2px solid var(--cor-principal);
+  box-shadow: none;
+}
+
+/* FAQ — destaque na resposta */
+.faq-resposta {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Títulos mais marcantes */
+h2, h3, h4 {
+  color: #1a1a1a;
+  font-weight: 800;
+}
+
+/* Cards mais vibrantes no mobile */
+.card-diferencial {
+  border-left: 6px solid var(--cor-principal);
+  background: #fff;
+}
+
+/* Seções (melhor separação visual) */
+.secao-padrao,
+.secao-numeros,
+.secao-historia,
+.secao-orcamento {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Botões — contraste forte */
+.btn-destaque,
+.btn-destaque.hero-cta {
+  background: var(--cor-destaque);
+  color: #1a1a1a;
+  font-weight: 800;
+}
+
+/* Avaliação – deixa mais “card” */
+.avaliacao-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+/* Cards móveis com mais destaque */
+.movel-card {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
