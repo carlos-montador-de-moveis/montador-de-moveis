@@ -3,28 +3,28 @@
    Lógica Zero-Bug: Visual Polido & Alta Performance
    ============================ */
 
-/* ===== 1. VARIÁVEIS & CORES (BENCHMARKING) ===== */
+/* ===== 1. VARIÁVEIS & CORES ===== */
 :root {
-  /* Cores Refinadas: Azul mais confiável, Amarelo mais energético */
-  --cor-principal: #2563EB; /* Royal Blue Moderno */
+  --cor-principal: #2563EB; /* Royal Blue */
   --cor-principal-hover: #1d4ed8;
-  --cor-destaque: #F59E0B; /* Amber Gold - Contraste Alto */
+  --cor-destaque: #F59E0B; /* Amber Gold */
   --cor-destaque-glow: rgba(245, 158, 11, 0.4);
   
-  --cor-fundo: #F8FAFC; /* Slate 50 - Mais limpo que cinza puro */
+  --cor-fundo: #F8FAFC;
   --cor-paneis: #FFFFFF;
-  --cor-texto: #1E293B; /* Slate 800 - Leitura perfeita */
+  --cor-texto: #1E293B;
   --cor-texto-muted: #64748B;
+  
+  /* Nova variável para fundo dos ícones */
+  --cor-bg-icon: #EFF6FF; /* Azul bem clarinho */
   
   --border-subtle: #E2E8F0;
   --radius-base: 12px;
   --container-max: 1100px;
   
-  /* Espaçamentos */
   --vertical-gap: 24px;
-  --section-gap: 60px; /* Item 4: Divisória relevante */
+  --section-gap: 60px;
   
-  /* Sombras Premium */
   --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
   --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -43,13 +43,13 @@ body{
   overflow-x: hidden;
 }
 
-/* ===== ITEM 3: NAV FIXA VISUAL ===== */
+/* ===== NAV FIXA VISUAL ===== */
 .menu-header {
-  position: sticky; /* Já estava, mas reforçando */
+  position: sticky;
   top: 0;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px); /* Efeito vidro moderno */
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-subtle);
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
   padding: 0;
@@ -82,17 +82,16 @@ body{
 
 .menu-header button:hover {
   color: var(--cor-principal);
-  background: #EFF6FF; /* Light Blue tint */
+  background: #EFF6FF;
 }
 
-/* ===== ITEM 4: SECTIONS INDEPENDENTES (DIVISÓRIAS) ===== */
+/* ===== SECTIONS INDEPENDENTES ===== */
 .secao-independente {
   margin-bottom: var(--section-gap);
   position: relative;
-  border-bottom: 1px solid transparent; /* Placeholder */
+  border-bottom: 1px solid transparent;
 }
 
-/* Adiciona uma "onda" ou separação sutil apenas com bordas e background */
 .secao-independente::after {
   content: "";
   display: block;
@@ -103,10 +102,8 @@ body{
   border-radius: 2px;
   opacity: 0.6;
 }
-/* Remove divisor da última seção */
 .secao-orcamento::after { display: none; }
 
-/* Containers Gerais */
 .secao-padrao, .secao-numeros, .secao-historia, .secao-orcamento {
   padding: 30px 20px;
   max-width: var(--container-max);
@@ -118,47 +115,94 @@ body{
   border: 1px solid var(--border-subtle);
 }
 
-/* HERO SECTION */
+/* ===== HERO SECTION UPGRADE (Sugestões 1, 2 e 3) ===== */
 .hero-section {
   position: relative;
-  padding: 60px 20px;
+  /* Altura mínima para garantir respiro */
+  min-height: 500px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
-  overflow: hidden;
   margin-bottom: var(--section-gap);
-  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  background: #F8FAFC;
 }
 
+.header-bg-wrapper {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
 .header-cover {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  opacity: 0.15; z-index: 0; pointer-events: none; filter: grayscale(100%);
+  width: 100%; height: 100%; object-fit: cover;
+}
+/* Sugestão 3: Overlay Gradiente Profundo */
+.header-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(241,245,249,0.7) 50%, rgba(248,250,252,1) 100%);
 }
 
 .hero-content {
   position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
-  gap: 16px;
+  gap: 20px; padding: 20px; max-width: 800px;
 }
 
+/* Sugestão 1: Status Profile Wrapper */
+.perfil-wrapper { position: relative; display: inline-block; margin-bottom: 10px; }
+
 .header-img {
-  width: 110px; height: 110px; border-radius: 50%;
+  width: 120px; height: 120px; border-radius: 50%;
   border: 4px solid white;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   object-fit: cover;
 }
 
-.hero-section h1 {
-  font-size: 1.8rem; color: var(--cor-texto); font-weight: 800; letter-spacing: -0.5px;
+/* Badge de Status Pulsante */
+.status-badge {
+  position: absolute; bottom: 8px; right: 8px;
+  width: 24px; height: 24px;
+  background: #ffffff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.hero-section .tagline {
-  max-width: 600px; margin: 0 auto; color: var(--cor-texto-muted);
+.status-dot {
+  width: 14px; height: 14px; background: #22c55e; border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
 
-/* ===== ITEM 2: BOTÃO HERO CRIATIVO ===== */
+/* Sugestão 2: Badge de Verificado */
+.selo-verificado {
+  position: absolute; top: 0; right: -20px;
+  background: var(--cor-principal); color: white;
+  font-size: 0.7rem; font-weight: 700; padding: 4px 8px;
+  border-radius: 20px; display: flex; align-items: center; gap: 4px;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+  transform: rotate(5deg);
+}
+.selo-verificado svg { width: 12px; height: 12px; stroke-width: 3; }
+
+.hero-section h1 {
+  font-size: 2rem; color: var(--cor-texto); font-weight: 800; letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+@media(min-width: 768px) { .hero-section h1 { font-size: 2.8rem; } }
+
+.hero-section .tagline {
+  max-width: 600px; margin: 0 auto; color: var(--cor-texto-muted); font-size: 1.05rem;
+}
+
+/* Botão Hero */
 .btn-destaque.hero-cta {
   position: relative;
   background: linear-gradient(135deg, var(--cor-destaque) 0%, #F59E0B 100%);
   color: #fff;
-  padding: 16px 32px;
+  padding: 16px 36px;
   border-radius: 50px;
   font-weight: 700;
   font-size: 1.1rem;
@@ -166,17 +210,17 @@ body{
   box-shadow: 0 8px 20px var(--cor-destaque-glow);
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
-  border: 2px solid #FFF; /* Borda interna para destaque */
+  border: 2px solid rgba(255,255,255,0.4);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 }
 
 .btn-destaque.hero-cta:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: 0 12px 25px var(--cor-destaque-glow);
 }
-
 .btn-destaque.hero-cta:active { transform: translateY(1px); }
 
 /* ===== NUMBERS & HISTORIA ===== */
@@ -192,7 +236,7 @@ body{
 @media(min-width: 768px) { .historia-grid { grid-template-columns: 1fr 1fr; } }
 .imagem-historia { width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-base); box-shadow: var(--shadow-card); }
 
-/* ===== ITEM 5: LINK ATRAENTE ===== */
+/* Link Atraente */
 .link-cta-atraente {
   display: inline-block;
   margin-top: 15px;
@@ -207,7 +251,7 @@ body{
 .link-cta-atraente:hover { border-bottom-color: var(--cor-principal); }
 .link-cta-atraente:hover .arrow { transform: translateX(5px); }
 
-/* ===== DIFERENCIAIS ===== */
+/* ===== DIFERENCIAIS (COM SVGS) ===== */
 .grid-diferenciais { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 25px; }
 .card-diferencial {
   background: #fff; padding: 25px; border-radius: var(--radius-base);
@@ -215,13 +259,22 @@ body{
   transition: transform 0.2s;
 }
 .card-diferencial:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); }
-.icone-dif { font-size: 2rem; margin-bottom: 15px; }
 
-/* ===== ITEM 6: ESTRELAS SVG ===== */
+/* Ícone SVG wrapper */
+.icone-dif-svg {
+  width: 56px; height: 56px;
+  background: var(--cor-bg-icon);
+  color: var(--cor-principal);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.icone-dif-svg svg { width: 28px; height: 28px; stroke-width: 2px; }
+
+/* ===== ESTRELAS SVG & AVALIAÇÕES ===== */
 .stars-svg { display: inline-flex; align-items: center; gap: 2px; vertical-align: middle; margin-left: 8px; }
 .stars-svg svg { width: 20px; height: 20px; fill: #FBBF24; }
 
-/* ===== AVALIAÇÕES & ITEM 7 ===== */
 .bg-alternativo { background: #F1F5F9; border: none; }
 .avaliacoes { display: grid; gap: 20px; grid-template-columns: 1fr; margin-top: 20px; }
 @media(min-width: 768px) { .avaliacoes { grid-template-columns: 1fr 1fr; } }
@@ -235,7 +288,6 @@ body{
 .conteudo .nome small { display: block; font-weight: 400; color: var(--cor-texto-muted); font-size: 0.85rem; }
 .conteudo .comentario { font-size: 0.95rem; color: #334155; }
 
-/* Item 7: Ver mais azul e clicável */
 .ver-mais-link {
   color: var(--cor-principal);
   font-weight: 600;
@@ -255,40 +307,21 @@ body{
 .movel-card img { width: 100%; height: 180px; object-fit: cover; }
 .movel-card p { padding: 12px; font-weight: 700; text-align: center; color: var(--cor-texto); }
 
-/* ===== ITEM 8: FAQ ANIMADO & LINHAS ===== */
+/* ===== FAQ ANIMADO ===== */
 .faq-container { display: flex; flex-direction: column; }
-
-.faq-container details {
-  border-bottom: 1px solid var(--border-subtle); /* Linha divisória */
-  padding: 10px 0;
-  transition: background 0.2s;
-}
-
+.faq-container details { border-bottom: 1px solid var(--border-subtle); padding: 10px 0; transition: background 0.2s; }
 .faq-container summary {
   list-style: none; cursor: pointer; font-weight: 700; color: var(--cor-texto);
-  padding: 12px 5px; position: relative; display: flex; justify-content: space-between; align-items: center;
-  outline: none;
+  padding: 12px 5px; position: relative; display: flex; justify-content: space-between; align-items: center; outline: none;
 }
-/* Remove default arrow */
 .faq-container summary::-webkit-details-marker { display: none; }
-
-/* Custom arrow */
-.faq-container summary::after {
-  content: "+"; font-size: 1.5rem; font-weight: 300; color: var(--cor-principal);
-  transition: transform 0.3s;
-}
+.faq-container summary::after { content: "+"; font-size: 1.5rem; font-weight: 300; color: var(--cor-principal); transition: transform 0.3s; }
 .faq-container details[open] summary::after { transform: rotate(45deg); }
-
-/* Animação Suave do conteúdo */
-.faq-content {
-  overflow: hidden;
-  animation: slideDown 0.4s ease-out forwards;
-}
+.faq-content { overflow: hidden; animation: slideDown 0.4s ease-out forwards; }
 .faq-container details p {
   background: transparent; padding: 5px 5px 15px 5px; color: var(--cor-texto-muted);
   box-shadow: none; border: none; margin: 0;
 }
-
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -296,17 +329,13 @@ body{
 
 /* ===== ORÇAMENTO ===== */
 .secao-orcamento { background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%); border: 1px solid #CBD5E1; }
-
-/* Item 9: Gap Relevante */
 .orcamento-header { margin-bottom: 40px; text-align: center; }
 .orcamento-header h2 { color: var(--cor-principal); }
 
 form {
   display: flex; flex-direction: column; gap: 20px; max-width: 700px; margin: 0 auto;
-  padding: 0; /* removido padding extra pois o container já tem */
-  background: transparent; box-shadow: none; border: none;
+  padding: 0; background: transparent; box-shadow: none; border: none;
 }
-
 form input, form textarea {
   width: 100%; padding: 14px; border: 1px solid #CBD5E1; border-radius: 8px;
   background: #fff; font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s;
@@ -314,7 +343,6 @@ form input, form textarea {
 form input:focus, form textarea:focus {
   border-color: var(--cor-principal); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); outline: none;
 }
-
 form button#btnEnviar {
   background: var(--cor-principal); color: white; padding: 16px; border-radius: 50px;
   font-size: 1.1rem; font-weight: 700; border: none; cursor: pointer;
@@ -322,48 +350,36 @@ form button#btnEnviar {
 }
 form button#btnEnviar:hover { background: var(--cor-principal-hover); transform: translateY(-1px); }
 
-/* ===== MODAL & ANIMAÇÃO (ITEM 7.1) ===== */
+/* ===== MODAL ===== */
 .modal-overlay {
   position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6);
   display: none; align-items: center; justify-content: center; z-index: 2000;
   opacity: 0; transition: opacity 0.3s;
 }
 .modal-overlay.ativo { opacity: 1; }
-
 .modal-content {
   background: #fff; padding: 30px; border-radius: 16px; max-width: 600px; width: 90%;
   position: relative; box-shadow: var(--shadow-float);
-  
-  /* Item 7.1: Animação de 1.5s (Solicitado) */
   transform: scale(0.8); opacity: 0;
 }
-/* Quando ativo, aplica a animação */
-.modal-overlay.ativo .modal-content {
-  animation: slowReveal 1.5s ease-out forwards; /* 1.5s como pedido */
-}
-
+.modal-overlay.ativo .modal-content { animation: slowReveal 1.5s ease-out forwards; }
 @keyframes slowReveal {
   0% { opacity: 0; transform: scale(0.8) translateY(20px); }
-  30% { opacity: 0.6; } /* Acelera um pouco o início para não parecer travado */
+  30% { opacity: 0.6; }
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
-
 .fechar-modal {
   position: absolute; top: 15px; right: 15px; font-size: 24px; color: #94A3B8;
   background: transparent; border: none; cursor: pointer; transition: color 0.2s;
 }
 .fechar-modal:hover { color: var(--cor-texto); }
 
-/* ===== ITEM 10: WHATSAPP REFORMULADO ===== */
+/* ===== WHATSAPP ===== */
 .whatsapp-float {
   position: fixed; right: 20px; bottom: 20px; z-index: 10000;
-  width: 64px; height: 64px; /* Maior */
-  background: #25D366; /* Verde oficial */
-  border-radius: 50%;
+  width: 64px; height: 64px; background: #25D366; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border: none; /* Sem borda amarela */
-  transition: transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: none; transition: transform 0.2s;
 }
 .whatsapp-float img { width: 36px; height: 36px; }
 .whatsapp-float:hover { transform: scale(1.1); }
@@ -376,7 +392,6 @@ form button#btnEnviar:hover { background: var(--cor-principal-hover); transform:
 }
 .botao-inicio:hover { border-color: var(--cor-principal); color: var(--cor-principal); }
 
-/* Feedback */
 .feedback-sucesso {
   margin-top: 15px; padding: 15px; background: #DCFCE7; color: #166534;
   border-radius: 8px; text-align: center; font-weight: 600; border: 1px solid #86EFAC;
