@@ -131,7 +131,7 @@
   </div>
 </section>
 
-<section id="diferenciais" class="secao-padrao secao-independente">
+<section id="diferenciais" class="secao-padrao secao-independente" id="diferenciais">
   <h2>Por que me Escolher para Montar seu Móvel?</h2>
   <p class="subtitulo-secao">Aqui é serviço de confiança, feito com cuidado e atenção.</p>
 
@@ -266,7 +266,7 @@
   <div id="feedbackSucesso" class="feedback-sucesso" style="display:none;"></div>
 </section>
 
-<div id="btn-voltar-inicio" class="botao-inicio" onclick="scrollToTop()">Voltar ao Topo</div>
+<div class="botao-inicio" id="btn-voltar-inicio" onclick="scrollToTop()">Inicio</div>
 
 <div id="modalAvaliacao" class="modal-overlay" aria-hidden="true">
   <div class="modal-content">
@@ -284,14 +284,28 @@
 
 <div class="card-notificacao" id="cardNotif" role="status" aria-live="polite" style="display:none;"></div>
 
-<div class="mensagem-bem-vindo" id="bemvindo" style="display:none;">
-  <p>Precisa de um montador experiente para seu móvel?</p>
-  <button onclick="scrollToSection('orcamento'); document.getElementById('bemvindo').style.display='none'">Orçamento Rápido Agora!</button>
+<div id="chat-widget-container" class="chat-widget hidden">
+  <div class="chat-header">
+    <div class="chat-title">
+      <span class="dot-online"></span>
+      Carlos Assistente Virtual
+    </div>
+    <button class="chat-close" onclick="toggleChatBot()">×</button>
+  </div>
+  
+  <div id="chat-messages" class="chat-body">
+    </div>
+
+  <div class="chat-footer">
+    <input type="text" id="chat-input" placeholder="Digite sua resposta..." onkeypress="handleChatEnter(event)">
+    <button class="chat-send" onclick="processUserMessage()">➤</button>
+  </div>
 </div>
 
-<a href="#" id="btnWhatsappFloat" class="whatsapp-float" target="_blank" title="Falar no WhatsApp Imediato" aria-label="WhatsApp">
-  <img src="assets/whatsapp.png" alt="WhatsApp">
-</a>
+<button id="chat-fab" class="chat-fab" onclick="toggleChatBot()" aria-label="Abrir Chat">
+  <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <span class="chat-badge">1</span>
+</button>
 
 <script src="script.js"></script>
 </body>
