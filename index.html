@@ -3,28 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Carlos Montador de Móveis</title>
+<title>Carlos Montador | Montagem de Móveis Sênior - Décadas de Experiência</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <h1>Carlos Montador de Móveis</h1>
-  <p>Rapidez, Experiência, Garantia</p>
-  <a href="#orcamento" class="btn-destaque" onclick="scrollToSection('orcamento')">Solicitar Orçamento Rápido</a>
-  
-  <img src="assets/header-cover.jpg" class="header-cover" alt="Capa de Serviços de Montagem">
-  <img src="assets/perfil.jpg" alt="Foto de Carlos Montador" class="header-img">
+<header class="hero-section">
+  <div class="hero-content">
+    <img src="assets/perfil.jpg" alt="Foto de Carlos Montador Sênior" class="header-img">
+    <h1>Carlos Montador de Móveis</h1>
+    <p class="tagline">Engenharia da Montagem: **Zero-Bug**, Escalável e Foco na Durabilidade do seu Móvel.</p>
+    <a href="#orcamento" class="btn-destaque hero-cta" onclick="scrollToSection('orcamento')">Solicitar Orçamento Premium</a>
+  </div>
+  <img src="assets/header-cover.jpg" class="header-cover" alt="Capa de Serviços de Montagem com Foco em Qualidade">
 </header>
 
 <nav class="menu-header">
-  <button onclick="scrollToSection('avaliacoes')">Elogios</button>
+  <button onclick="scrollToSection('historia')">Carreira</button>
+  <button onclick="scrollToSection('diferenciais')">Diferenciais</button>
   <button onclick="scrollToSection('moveis')">Portfólio</button>
   <button onclick="scrollToSection('orcamento')">Contato</button>
 </nav>
 
-<section id="avaliacoes">
-  <h2>Elogios <span>⭐⭐⭐⭐⭐</span></h2>
+<section id="numeros" class="secao-numeros">
+  <h2>A Força da Experiência</h2>
+  <div class="big-numbers">
+    <div class="numero-card">
+      <span class="numero">15+</span>
+      <p>Anos de Carreira</p>
+    </div>
+    <div class="numero-card">
+      <span class="numero">99%</span>
+      <p>Clientes Satisfeitos</p>
+    </div>
+    <div class="numero-card">
+      <span class="numero">3k+</span>
+      <p>Móveis Montados</p>
+    </div>
+  </div>
+</section>
+
+<section id="historia" class="secao-historia">
+  <h2>Nossa Carreira: Lógica **Zero-Bug** em Cada Montagem</h2>
+  <div class="historia-grid">
+    <div class="texto-historia">
+      <p>Com mais de 15 anos no mercado, Carlos Montador aplica a metodologia de montagem que garante não apenas a instalação, mas a durabilidade estrutural do seu móvel.</p>
+      <p>Priorizamos o atendimento ao cliente (CX) e a excelência técnica. Nossa reputação foi construída em cima de projetos complexos, de cozinhas planejadas a guarda-roupas sob medida.</p>
+      <a href="#orcamento" class="btn-secundario" onclick="scrollToSection('orcamento')">Fale com o Sênior</a>
+    </div>
+    <img src="assets/historia.jpg" alt="Carlos trabalhando com ferramentas" class="imagem-historia">
+  </div>
+</section>
+
+<section id="diferenciais" class="secao-padrao">
+  <h2>Por que contratar um Profissional Sênior?</h2>
+  <p class="subtitulo-secao">Nossa metodologia de trabalho garante tranquilidade total.</p>
+  
+  <div class="grid-diferenciais">
+    <div class="card-diferencial">
+      <div class="icone-dif">🛠️</div>
+      <h3>Ferramental de Precisão</h3>
+      <p>Utilizamos parafusadeiras de alto torque e níveis a laser para garantir que o móvel não fique torto ou bambo.</p>
+    </div>
+    <div class="card-diferencial">
+      <div class="icone-dif">🧹</div>
+      <h3>Limpeza Pós-Obra</h3>
+      <p>Respeito total ao seu lar. Trabalhamos de forma organizada e deixamos o ambiente limpo após a montagem.</p>
+    </div>
+    <div class="card-diferencial">
+      <div class="icone-dif">🛡️</div>
+      <h3>Garantia Estendida</h3>
+      <p>Oferecemos garantia técnica sobre a montagem. Se houver ajuste necessário, retornamos sem custo.</p>
+    </div>
+    <div class="card-diferencial">
+      <div class="icone-dif">⏱️</div>
+      <h3>Pontualidade Rigorosa</h3>
+      <p>Seu tempo é valioso. Cumprimos a agenda combinada com comunicação clara via WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<section id="avaliacoes" class="secao-padrao bg-alternativo">
+  <h2>Elogios e Validações de Clientes <span class="stars">⭐⭐⭐⭐⭐</span></h2>
   <div class="avaliacoes">
     <div class="avaliacao-card">
       <img src="assets/avaliacao1.jpg" alt="Foto do Cliente Robson">
@@ -32,7 +92,7 @@
         <div class="nome">Robson <small>(Montagem de Guarda-Roupa)</small></div>
         <div class="comentario">
           Excelente serviço! Muito rápido e profissional...
-          <span class="ver-mais" data-nome="Robson" data-msg="Excelente serviço! Muito rápido e profissional, super recomendo! O guarda-roupa ficou perfeito, sem nenhum desnível.">ver mais</span>
+          <span class="ver-mais" data-nome="Robson" data-msg="Excelente serviço! Muito rápido e profissional, super recomendo! O guarda-roupa ficou perfeito, sem nenhum desnível.">Ver Depoimento Completo</span>
         </div>
       </div>
     </div>
@@ -42,16 +102,16 @@
         <div class="nome">Marilene <small>(Instalação de Cozinha)</small></div>
         <div class="comentario">
           Atendimento impecável, equipe muito educada...
-          <span class="ver-mais" data-nome="Marilene" data-msg="Atendimento impecável, equipe muito educada, cumpriram o prazo certinho! Deixaram a cozinha limpa após o serviço.">ver mais</span>
+          <span class="ver-mais" data-nome="Marilene" data-msg="Atendimento impecável, equipe muito educada, cumpriram o prazo certinho! Deixaram a cozinha limpa após o serviço.">Ver Depoimento Completo</span>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 </section>
 
-<section id="moveis">
-  <h2>Móveis Montados</h2>
-  <p class="subtitulo-secao">Toque nas imagens para ampliar</p>
+<section id="moveis" class="secao-padrao">
+  <h2>Portfólio de Montagens de Alta Complexidade</h2>
+  <p class="subtitulo-secao">Toque para ver a Engenharia do Acabamento</p>
   <div class="moveis">
     <div class="movel-card" onclick="openLightbox('assets/movel1.jpg', 'Cozinha Planejada - Acabamento Premium')">
       <img src="assets/movel1.jpg" alt="Cozinha Planejada">
@@ -64,17 +124,40 @@
   </div>
 </section>
 
-<section id="orcamento">
-  <h2>Solicitar Orçamento</h2>
+<section id="faq" class="secao-padrao bg-alternativo">
+  <h2>Dúvidas Frequentes</h2>
+  <div class="faq-container">
+    <details>
+      <summary>Vocês desmontam para mudança?</summary>
+      <p>Sim! Realizamos a desmontagem profissional com embalagem das ferragens para que nada se perca no transporte.</p>
+    </details>
+    <details>
+      <summary>Aceitam cartão de crédito ou PIX?</summary>
+      <p>Aceitamos PIX, Transferência e Cartão de Crédito (consulte parcelamento no ato do orçamento).</p>
+    </details>
+    <details>
+      <summary>Atendem aos finais de semana?</summary>
+      <p>Sim, trabalhamos com agendamento prévio aos sábados e feriados para sua maior comodidade.</p>
+    </details>
+    <details>
+      <summary>Cobram taxa de visita?</summary>
+      <p>Geralmente realizamos o orçamento online via WhatsApp com fotos ou link do móvel, sem custo algum.</p>
+    </details>
+  </div>
+</section>
+
+<section id="orcamento" class="secao-orcamento">
+  <h2>Solicitar Orçamento Sênior</h2>
+  <p class="subtitulo-secao">Garantia de montagem robusta e dentro do prazo.</p>
   <form id="formOrcamento">
-    <input type="text" name="nome" placeholder="Seu Nome" required>
-    <input type="email" name="email" placeholder="Seu Email" required>
+    <input type="text" name="nome" placeholder="Seu Nome Completo" required>
+    <input type="email" name="email" placeholder="Seu Email (Opcional)" >
     <input type="tel" id="telefone" name="telefone" placeholder="Seu WhatsApp (DDD + Número)" required inputmode="numeric" maxlength="15">
-    <input type="text" name="tipo" placeholder="Qual o tipo de móvel?" required>
-    <textarea name="mensagem" placeholder="Algum detalhe extra? (Opcional)" rows="4"></textarea>
-    <button type="submit" id="btnEnviar">Enviar Pedido</button>
+    <input type="text" name="tipo" placeholder="Tipo de Móvel: Guarda-Roupa, Cozinha, Rack, etc." required>
+    <textarea name="mensagem" placeholder="Detalhes: Marca do Móvel, Localização da Montagem, etc." rows="4"></textarea>
+    <button type="submit" id="btnEnviar">Enviar Pedido de Orçamento</button>
   </form>
-  <div id="feedbackSucesso" style="display:none; margin-top:1rem; color:#25d366; font-weight:bold;"></div>
+  <div id="feedbackSucesso" class="feedback-sucesso" style="display:none;"></div>
 </section>
 
 <div class="botao-inicio" onclick="scrollToTop()">Voltar ao Topo</div>
@@ -96,11 +179,11 @@
 <div class="card-notificacao" id="cardNotif"></div>
 
 <div class="mensagem-bem-vindo" id="bemvindo">
-  <p>Precisa montar seus móveis hoje?</p>
-  <button onclick="scrollToSection('orcamento'); document.getElementById('bemvindo').style.display='none'">Pedir Orçamento</button>
+  <p>Precisa de um montador sênior para seu móvel?</p>
+  <button onclick="scrollToSection('orcamento'); document.getElementById('bemvindo').style.display='none'">Orçamento Zero-Bug</button>
 </div>
 
-<a href="#" id="btnWhatsappFloat" class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
+<a href="#" id="btnWhatsappFloat" class="whatsapp-float" target="_blank" title="Falar no WhatsApp Imediato">
   <img src="assets/whatsapp.png" alt="WhatsApp">
 </a>
 
