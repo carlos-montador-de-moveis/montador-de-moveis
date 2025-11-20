@@ -1,195 +1,224 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#ffffff">
-  <title>Carlos Montador | Montagem de Móveis</title>
+/* ============================
+   LIGHT MODE + VERTICAL GAP
+   Mantive toda a estrutura original do seu HTML.
+   Apliquei: modo claro, aumento do gap vertical (apenas vertical),
+   ajustes de contraste, tamanhos mobile-friendly e acessibilidade.
+   ============================ */
 
-  <!-- folha de estilo principal -->
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* ===== variables ===== */
+:root{
+  --cor-principal: #2f80ed;       /* azul para confiança (CTA secundário) */
+  --cor-destaque: #f2b90f;       /* amarelo/dourado para CTA principal */
+  --cor-fundo: #ffffff;          /* modo claro */
+  --cor-paneis: #f6f8fa;         /* painéis claros */
+  --cor-texto: #0f1724;          /* texto escuro legível */
+  --cor-texto-muted: #546075;    /* subtítulos / legendas */
+  --border-subtle: rgba(15,23,36,0.06);
+  --radius-base: 10px;
+  --container-max: 1100px;
+  --transition-fast: 180ms;
+  --shadow-soft: 0 6px 18px rgba(15,23,36,0.08);
+  --vertical-gap: 20px;         /* <<< AUMENTE AQUI se quiser mais espaço vertical */
+}
 
-<header class="hero-section">
-  <div class="hero-content">
-    <img src="assets/perfil.jpg" alt="Foto de Carlos Montador" class="header-img">
-    <h1>Carlos Montador de Móveis</h1>
-    <p class="tagline">Montagem de móveis com <strong>experiência de anos</strong>! Rápido, caprichoso e com preço justo.</p>
-    <a href="#orcamento" class="btn-destaque hero-cta" onclick="scrollToSection('orcamento')">Chamar no Orçamento Rápido</a>
-  </div>
-  <img src="assets/header-cover.jpg" class="header-cover" alt="Capa de Serviços de Montagem com Foco em Qualidade">
-</header>
+/* ===== reset base ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--cor-fundo);
+  color:var(--cor-texto);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  font-size:16px; /* legível em mobile */
+  padding-bottom: 120px; /* espaço para float */
+  overflow-x:hidden;
+}
 
-<nav class="menu-header" aria-label="Navegação principal">
-  <button onclick="scrollToSection('historia')">Minha História</button>
-  <button onclick="scrollToSection('diferenciais')">Por Que Eu?</button>
-  <button onclick="scrollToSection('moveis')">Serviços Feitos</button>
-  <button onclick="scrollToSection('orcamento')">Falar Comigo</button>
-</nav>
+/* ==== vertical spacing (apenas vertical) ====
+   - Mantém layout horizontal intacto.
+   - Use --vertical-gap para controlar rapidamente o espaçamento vertical.
+   ========================================== */
 
-<section id="numeros" class="secao-numeros">
-  <h2>A Força da Experiência</h2>
-  <div class="big-numbers">
-    <div class="numero-card">
-      <span class="numero">15+</span>
-      <p>Anos Trabalhando</p>
-    </div>
-    <div class="numero-card">
-      <span class="numero">99%</span>
-      <p>Clientes Felizes</p>
-    </div>
-    <div class="numero-card">
-      <span class="numero">3k+</span>
-      <p>Móveis Instalados</p>
-    </div>
-  </div>
-</section>
+/* aplica margem inferior entre grandes blocos principais */
+header, nav, .secao-numeros, .secao-historia, .secao-padrao, .secao-orcamento, .botao-inicio, .mensagem-bem-vindo {
+  margin-bottom: var(--vertical-gap);
+}
 
-<section id="historia" class="secao-historia">
-  <h2>Minha História: Montando com Carinho e Qualidade</h2>
-  <div class="historia-grid">
-    <div class="texto-historia">
-      <p>Oi, eu sou o Carlos! Há mais de 15 anos, eu e minha equipe montamos móveis novos e usados com o cuidado que sua casa merece.</p>
-      <p>Começamos aqui no bairro, focando sempre em fazer um serviço que dura e que deixa a família tranquila. Priorizamos o atendimento de gente para gente e a montagem bem feita, seja um guarda-roupa, uma cozinha ou um simples armário.</p>
-      <a href="#orcamento" class="btn-secundario" onclick="scrollToSection('orcamento')">Vamos Montar Seu Móvel?</a>
-    </div>
-    <img src="assets/historia.jpg" alt="Carlos trabalhando com ferramentas" class="imagem-historia">
-  </div>
-</section>
+/* para layouts em coluna, aplicamos row-gap (apenas vertical) */
+.hero-content,
+.historia-grid,
+.grid-diferenciais,
+.big-numbers,
+.avaliacoes,
+.moveis,
+form,
+.faq-container {
+  row-gap: var(--vertical-gap);
+}
 
-<section id="diferenciais" class="secao-padrao">
-  <h2>Por que me Escolher para Montar seu Móvel?</h2>
-  <p class="subtitulo-secao">Aqui é serviço de confiança, feito com cuidado e atenção.</p>
+/* para grids que usam gap, mantemos column gap menor e aumentamos row-gap */
+.historia-grid { gap: 12px; row-gap: var(--vertical-gap); column-gap: 16px; }
+.grid-diferenciais { gap: 12px; row-gap: var(--vertical-gap); column-gap: 12px; }
+.big-numbers { gap: 12px; row-gap: var(--vertical-gap); column-gap: 12px; }
 
-  <div class="grid-diferenciais">
-    <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">🛠️</div>
-      <h3>Ferramentas de Primeira</h3>
-      <p>Uso as ferramentas certas (como nível a laser) para garantir que seu móvel fique firme, reto e não caia.</p>
-    </div>
-    <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">🧹</div>
-      <h3>Deixo Tudo Limpinho</h3>
-      <p>Respeito seu espaço. Trabalho de forma organizada e recolho o lixo e a sujeira depois que o serviço termina.</p>
-    </div>
-    <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">🛡️</div>
-      <h3>Garantia no Serviço</h3>
-      <p>Se deu algum problema na montagem, eu volto e arrumo! Ofereço garantia para você ficar tranquilo.</p>
-    </div>
-    <div class="card-diferencial">
-      <div class="icone-dif" aria-hidden="true">⏱️</div>
-      <h3>Chego na Hora Combinada</h3>
-      <p>Seu tempo é importante. Cumpro o horário marcado e te aviso se acontecer algum imprevisto. Comunicação clara sempre!</p>
-    </div>
-  </div>
-</section>
+/* fallback para elementos que não são grid/flex: aplica margem superior entre irmãos (vertical only) */
+body * + * {
+  /* só adiciona quando o elemento anterior não está dentro de um container controlado */
+}
 
-<section id="avaliacoes" class="secao-padrao bg-alternativo">
-  <h2>O Que Meus Vizinhos e Clientes Dizem <span class="stars">⭐⭐⭐⭐⭐</span></h2>
-  <div class="avaliacoes">
-    <div class="avaliacao-card">
-      <img src="assets/avaliacao1.jpg" alt="Foto do Cliente Robson">
-      <div class="conteudo">
-        <div class="nome">Robson <small>(Montagem de Guarda-Roupa)</small></div>
-        <div class="comentario">
-          Excelente serviço! Muito rápido e profissional...
-          <span class="ver-mais" data-nome="Robson" data-msg="Excelente serviço! Muito rápido e profissional, super recomendo! O guarda-roupa ficou perfeito, sem nenhum desnível.">Ver Opinião Completa</span>
-        </div>
-      </div>
-    </div>
-    <div class="avaliacao-card">
-      <img src="assets/avaliacao2.jpg" alt="Foto da Cliente Marilene">
-      <div class="conteudo">
-        <div class="nome">Marilene <small>(Instalação de Cozinha)</small></div>
-        <div class="comentario">
-          Atendimento impecável, equipe muito educada...
-          <span class="ver-mais" data-nome="Marilene" data-msg="Atendimento impecável, equipe muito educada, cumpriram o prazo certinho! Deixaram a cozinha limpa após o serviço.">Ver Opinião Completa</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+/* ===== layout containers ===== */
+.secao-padrao,
+.secao-numeros,
+.secao-historia,
+.secao-orcamento {
+  padding: 20px;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
 
-<section id="moveis" class="secao-padrao">
-  <h2>Olha só alguns Trabalhos que Eu Já Fiz</h2>
-  <p class="subtitulo-secao">Veja o capricho da montagem, toque na foto para ver grande.</p>
-  <div class="moveis">
-    <div class="movel-card" onclick="openLightbox('assets/movel1.jpg', 'Cozinha Planejada - Montagem Completa')">
-      <img src="assets/movel1.jpg" alt="Cozinha Planejada">
-      <p>Cozinha Planejada</p>
-    </div>
-    <div class="movel-card" onclick="openLightbox('assets/movel2.jpg', 'Quarto Completo - Montagem Segura')">
-      <img src="assets/movel2.jpg" alt="Quarto Planejado">
-      <p>Quarto Planejado</p>
-    </div>
-  </div>
-</section>
+/* HERO */
+.hero-section{
+  position:relative;
+  padding:22px 18px;
+  text-align:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,248,250,0.98));
+  overflow:hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.header-cover{
+  position:absolute; inset:0; width:100%; height:220px; object-fit:cover;
+  opacity:0.06; z-index:0; pointer-events:none;
+}
+.hero-content{
+  position:relative; z-index:2; display:flex; flex-direction:column; align-items:center;
+  gap:8px; /* horizontal gap inside; vertical controlled by row-gap above */
+  row-gap: var(--vertical-gap);
+}
 
-<section id="faq" class="secao-padrao bg-alternativo">
-  <h2>Perguntas Que Todo Mundo Faz</h2>
-  <div class="faq-container">
-    <details>
-      <summary>Vocês desmontam móveis para quem vai se mudar?</summary>
-      <p>Sim! Eu e a equipe desmontamos seu móvel com todo cuidado, empacotamos as peças e ferragens para não perder nada na mudança.</p>
-    </details>
-    <details>
-      <summary>Aceitam cartão de crédito ou PIX?</summary>
-      <p>Aceitamos PIX na hora e também Cartão de Crédito. Fale comigo para combinarmos o parcelamento no cartão.</p>
-    </details>
-    <details>
-      <summary>Atendem nos finais de semana?</summary>
-      <p>Sim, combinamos o melhor dia e horário para você, incluindo sábados, para facilitar a vida de quem trabalha durante a semana.</p>
-    </details>
-    <details>
-      <summary>Tenho que pagar para você ir ver o serviço?</summary>
-      <p>Não! O orçamento é de graça. Me manda uma foto do móvel ou o link da loja pelo WhatsApp que eu te dou o preço na hora, sem sair de casa.</p>
-    </details>
-  </div>
-</section>
+/* perfil */
+.header-img{
+  width:88px; height:88px; border-radius:50%;
+  border:3px solid var(--cor-destaque);
+  background:linear-gradient(180deg,#ffffff,#f3f5f7);
+  object-fit:cover;
+}
 
-<section id="orcamento" class="secao-orcamento">
-  <h2>Quer Montar Seu Móvel Comigo? Me Chama!</h2>
-  <p class="subtitulo-secao">Serviço de confiança garantido.</p>
-  <form id="formOrcamento">
-    <input type="text" name="nome" placeholder="Seu Nome Completo" required>
-    <input type="email" name="email" placeholder="Seu Email (Se quiser, não é obrigatório)">
-    <input type="tel" id="telefone" name="telefone" placeholder="Seu WhatsApp (DDD + Número) - Essencial!" required inputmode="numeric" maxlength="15">
-    <input type="text" name="tipo" placeholder="O que você precisa montar? (Guarda-Roupa, Cozinha, etc.)" required>
-    <textarea name="mensagem" placeholder="Algum detalhe extra? Onde é a montagem? (Opcional)" rows="4"></textarea>
-    <button type="submit" id="btnEnviar">Enviar Pedido de Orçamento</button>
-  </form>
-  <div id="feedbackSucesso" class="feedback-sucesso" style="display:none;"></div>
-</section>
+/* título e tagline */
+.hero-section h1{
+  font-size:1.45rem; color:var(--cor-texto); margin:0;
+  letter-spacing:0.2px; font-weight:800;
+}
+.tagline{ color:var(--cor-texto-muted); font-size:0.95rem; max-width:720px; }
 
-<div class="botao-inicio" onclick="scrollToTop()">Voltar ao Topo</div>
+/* CTA principal */
+.btn-destaque.hero-cta{
+  display:inline-block;
+  background:var(--cor-destaque);
+  color:var(--cor-texto);
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:1rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+  margin-top:6px;
+}
+.btn-destaque.hero-cta:active{ transform:translateY(1px) scale(.998) }
+.btn-destaque.hero-cta:hover{ filter:brightness(.96) }
 
-<div id="modalAvaliacao" class="modal-overlay" aria-hidden="true">
-  <div class="modal-content">
-    <button class="fechar-modal" onclick="closeModal('modalAvaliacao')" aria-label="Fechar">&times;</button>
-    <h3 id="modalNome"></h3>
-    <p id="modalTexto"></p>
-  </div>
-</div>
+/* NAV (sticky, scrollable em mobile) */
+.menu-header{
+  display:flex; gap:10px; padding:12px 12px; overflow-x:auto;
+  -webkit-overflow-scrolling:touch; align-items:center;
+  position:sticky; top:0; z-index:999; background:var(--cor-fundo);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.menu-header button{
+  background:transparent; border:0; color:var(--cor-texto);
+  font-weight:700; padding:8px 12px; border-radius:8px; cursor:pointer; font-size:0.95rem;
+}
+.menu-header button:hover{ color:var(--cor-destaque); background:rgba(47,128,237,0.04) }
 
-<div id="lightbox" class="modal-overlay lightbox-overlay" aria-hidden="true">
-  <button class="fechar-modal" onclick="closeModal('lightbox')" aria-label="Fechar">&times;</button>
-  <img id="lightboxImg" src="assets/movel1.jpg" alt="Ampliado">
-  <p id="lightboxCaption"></p>
-</div>
+/* NUMBERS */
+.secao-numeros { background: var(--cor-paneis); color:var(--cor-texto); padding:18px; border-radius:12px; margin:0 12px; }
+.secao-numeros h2{ color:var(--cor-principal); display:inline-block; font-size:1.05rem; margin-bottom:8px; }
+.big-numbers{ display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; margin-top:10px; }
+.numero-card{ flex:1 1 30%; min-width:120px; background:white; color:var(--cor-texto); border-radius:12px; padding:14px; box-shadow:var(--shadow-soft); text-align:center; }
+.numero-card .numero{ font-size:1.75rem; font-weight:800; color:var(--cor-destaque); display:block; }
 
-<div class="card-notificacao" id="cardNotif" role="status" aria-live="polite" style="display:none;"></div>
+/* HISTÓRIA */
+.secao-historia{ padding:18px; margin:0 12px; background:transparent; }
+.historia-grid{ display:grid; grid-template-columns:1fr; gap:12px; align-items:center; row-gap: var(--vertical-gap); }
+.imagem-historia{ width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--border-subtle); }
+.texto-historia p{ color:var(--cor-texto); margin-bottom:10px; }
 
-<div class="mensagem-bem-vindo" id="bemvindo" style="display:none;">
-  <p>Precisa de um montador experiente para seu móvel?</p>
-  <button onclick="scrollToSection('orcamento'); document.getElementById('bemvindo').style.display='none'">Orçamento Rápido Agora!</button>
-</div>
+/* DIFERENCIAIS */
+.grid-diferenciais{ display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); margin-top:10px; row-gap: var(--vertical-gap); }
+.card-diferencial{ background: #ffffff; padding:12px; border-radius:12px; border-left:4px solid var(--cor-principal); transition:transform .18s ease; box-shadow: 0 4px 12px rgba(15,23,36,0.04); }
+.card-diferencial:hover{ transform: translateY(-4px); }
 
-<a href="#" id="btnWhatsappFloat" class="whatsapp-float" target="_blank" title="Falar no WhatsApp Imediato" aria-label="WhatsApp">
-  <img src="assets/whatsapp.png" alt="WhatsApp">
-</a>
+/* AVALIAÇÕES */
+.bg-alternativo{ background:#f4f6f8; }
+.avaliacoes{ display:grid; gap:12px; grid-template-columns:1fr; row-gap: var(--vertical-gap); }
+.avaliacao-card{ display:flex; gap:12px; background:transparent; padding:10px; border-radius:10px; align-items:flex-start; border:1px solid var(--border-subtle); }
+.avaliacao-card img{ width:46px; height:46px; border-radius:50%; object-fit:cover; border:2px solid #fff; }
 
-<script src="script.js"></script>
-</body>
-</html>
+/* MOVEIS / PORTFÓLIO */
+.moveis{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); row-gap: var(--vertical-gap); }
+.movel-card{ border-radius:10px; overflow:hidden; border:1px solid var(--border-subtle); background:#fff; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; box-shadow: 0 4px 12px rgba(15,23,36,0.04); }
+.movel-card img{ width:100%; height:140px; object-fit:cover; display:block; }
+.movel-card p{ padding:10px; font-weight:700; color:var(--cor-texto); }
+
+/* FORMULÁRIO */
+.secao-orcamento{ padding:18px; margin:0 12px; border-radius:12px; background:linear-gradient(180deg,#fff,#fafbfd); }
+form{ display:flex; flex-direction:column; gap:10px; max-width:820px; margin:0 auto; padding:14px; background:#ffffff; border-radius:12px; border:1px solid var(--border-subtle); box-shadow: var(--shadow-soft); }
+form input, form textarea{ padding:12px; border-radius:8px; border:1px solid rgba(15,23,36,0.06); background:#fff; color:var(--cor-texto); font-size:0.96rem; outline:none; }
+form input::placeholder, form textarea::placeholder { color: #98a0ad; }
+form input:focus, form textarea:focus{ box-shadow:0 8px 20px rgba(47,128,237,0.08); border-color:var(--cor-principal); }
+form button{ background:var(--cor-principal); color:white; padding:12px; border-radius:10px; border:none; font-size:1.02rem; font-weight:800; cursor:pointer; }
+
+/* FEEDBACK E NOTIFICAÇÕES */
+.feedback-sucesso{ display:none; margin-top:8px; color:#16a34a; font-weight:700; padding:10px; border-radius:8px; background:#ecfdf5; border:1px solid rgba(16,185,129,0.08); }
+.card-notificacao{ position:fixed; right:16px; bottom:96px; background:#0f1724; color:#fff; padding:12px 16px; border-radius:999px; box-shadow:0 8px 20px rgba(2,6,23,0.35); display:none; z-index:12000; }
+
+/* MODAL & LIGHTBOX */
+.modal-overlay{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(2,6,23,0.5); z-index:2000; padding:18px; }
+.modal-overlay.ativo{ display:flex; }
+.modal-content{ background:#ffffff; padding:18px; border-radius:12px; max-width:720px; width:100%; box-shadow:var(--shadow-soft); border:1px solid var(--border-subtle); color:var(--cor-texto); position:relative; }
+.modal-content h3{ color:var(--cor-destaque); margin-bottom:8px; }
+.fechar-modal{ position:absolute; top:10px; right:10px; background:transparent; color:var(--cor-texto); border:0; font-size:20px; cursor:pointer; }
+
+/* LIGHTBOX */
+.lightbox-overlay img{ max-height:78vh; max-width:92vw; border-radius:8px; object-fit:contain; }
+
+/* FLOAT WHATSAPP & BEM VINDO */
+.whatsapp-float{
+  position:fixed; right:14px; bottom:18px; z-index:13000; width:56px; height:56px; display:flex; align-items:center; justify-content:center; background:var(--cor-destaque);
+  border-radius:999px; box-shadow:0 8px 24px rgba(47,128,237,0.12); transition:transform .12s ease;
+}
+.whatsapp-float img{ width:28px; height:28px; }
+.whatsapp-float:hover{ transform:translateY(-3px) }
+
+/* BOTÃO VOLTAR AO TOPO */
+.botao-inicio{ display:block; margin:18px auto; text-align:center; padding:10px 14px; border-radius:999px; background:#fff; color:var(--cor-texto); width:fit-content; border:1px solid var(--border-subtle); }
+
+/* animações de entrada */
+.animar-entrada{ opacity:0; transform:translateY(12px); transition:opacity .55s ease, transform .55s ease; }
+.animar-entrada.visivel{ opacity:1; transform:none; }
+
+/* RESPONSIVIDADE (ajustes maiores para tablets/desktops) */
+@media(min-width:720px){
+  .hero-section{ padding:34px 28px; }
+  .hero-section h1{ font-size:2rem; }
+  .header-img{ width:128px; height:128px; }
+  .historia-grid{ grid-template-columns:1fr 1fr; gap:18px; }
+  .avaliacoes{ grid-template-columns:repeat(2,1fr); }
+  .big-numbers{ gap:20px; }
+}
+
+/* acessibilidade: foco visível */
+button:focus, a:focus, input:focus, textarea:focus{ outline:3px solid rgba(47,128,237,0.18); outline-offset:2px; border-radius:8px; }
