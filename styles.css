@@ -9,7 +9,7 @@
 :root{
   --cor-principal: #2f80ed;       /* azul para confiança (CTA secundário) */
   --cor-destaque: #f2b90f;       /* amarelo/dourado para CTA principal */
-  --cor-fundo: #C0C0C0;          /* modo claro */
+  --cor-fundo: #dcdcdc;          /* modo claro */
   --cor-paneis: #f6f8fa;         /* painéis claros */
   --cor-texto: #0f1724;          /* texto escuro legível */
   --cor-texto-muted: #546075;    /* subtítulos / legendas */
