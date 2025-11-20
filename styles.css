@@ -10,7 +10,9 @@
   --cor-destaque: #F59E0B; /* Amber Gold */
   --cor-destaque-glow: rgba(245, 158, 11, 0.4);
   
-  --cor-fundo: #F8FAFC;
+  /* AJUSTE: Fundo levemente mais escuro para destacar os cards brancos */
+  --cor-fundo: #F1F5F9; /* Slate 100 */
+  
   --cor-paneis: #FFFFFF;
   --cor-texto: #1E293B;
   --cor-texto-muted: #64748B;
@@ -22,8 +24,8 @@
   --radius-base: 12px;
   --container-max: 1100px;
   
-  --vertical-gap: 24px;
-  --section-gap: 60px;
+  --vertical-gap: 20px;
+  --section-gap: 50px;
   
   --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
@@ -42,6 +44,12 @@ body{
   padding-bottom: 120px;
   overflow-x: hidden;
 }
+
+/* Melhoria de Performance de Fonte */
+body {
+  font-display: swap; /* Garante que o texto apareça na fonte padrão se a customizada demorar */
+}
+
 
 /* ===== NAV FIXA VISUAL ===== */
 .menu-header {
@@ -115,11 +123,15 @@ body{
   border: 1px solid var(--border-subtle);
 }
 
+#diferenciais {
+	background: var(--cor-fundo);
+}
+
 /* ===== HERO SECTION UPGRADE (Sugestões 1, 2 e 3) ===== */
 .hero-section {
   position: relative;
   /* Altura mínima para garantir respiro */
-  min-height: 500px; 
+  min-height: 400px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,7 +180,7 @@ body{
 .status-dot {
   width: 14px; height: 14px; background: #22c55e; border-radius: 50%;
   box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-  animation: pulse-green 2s infinite;
+  animation: pulse-green 1s infinite;
 }
 @keyframes pulse-green {
   0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
@@ -275,7 +287,12 @@ body{
 .stars-svg { display: inline-flex; align-items: center; gap: 2px; vertical-align: middle; margin-left: 8px; }
 .stars-svg svg { width: 20px; height: 20px; fill: #FBBF24; }
 
-.bg-alternativo { background: #F1F5F9; border: none; }
+/* AJUSTE: Background alternativo mais escuro para contrastar com o novo fundo */
+.bg-alternativo { 
+  background: #E2E8F0; /* Mais escuro que o fundo #F1F5F9 */
+  border: none; 
+}
+
 .avaliacoes { display: grid; gap: 20px; grid-template-columns: 1fr; margin-top: 20px; }
 @media(min-width: 768px) { .avaliacoes { grid-template-columns: 1fr 1fr; } }
 
@@ -399,4 +416,30 @@ form button#btnEnviar:hover { background: var(--cor-principal-hover); transform:
 .card-notificacao {
   position: fixed; right: 20px; bottom: 90px; background: #334155; color: white;
   padding: 12px 20px; border-radius: 50px; box-shadow: var(--shadow-float); z-index: 11000;
+}
+
+/* ===== ANIMAÇÕES DE SCROLL (Essencial para o JS funcionar) ===== */
+.animar-entrada {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  will-change: opacity, transform; /* Performance boost */
+}
+
+.animar-entrada.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Otimização para quem prefere não ter movimentos bruscos no sistema */
+@media (prefers-reduced-motion: reduce) {
+  .animar-entrada {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#btn-voltar-inicio {
+	max-width: 40%;
 }
