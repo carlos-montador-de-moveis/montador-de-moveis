@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Carlos Montador | Montagem de Móveis</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1b1b1b">
+  <title>Carlos Montador | Montagem de Móveis</title>
+
+  <!-- folha de estilo principal -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -12,13 +15,13 @@
   <div class="hero-content">
     <img src="assets/perfil.jpg" alt="Foto de Carlos Montador" class="header-img">
     <h1>Carlos Montador de Móveis</h1>
-    <p class="tagline">Montagem de móveis com **experiência de anos**! Rápido, caprichoso e com preço justo.</p>
+    <p class="tagline">Montagem de móveis com <strong>experiência de anos</strong>! Rápido, caprichoso e com preço justo.</p>
     <a href="#orcamento" class="btn-destaque hero-cta" onclick="scrollToSection('orcamento')">Chamar no Orçamento Rápido</a>
   </div>
   <img src="assets/header-cover.jpg" class="header-cover" alt="Capa de Serviços de Montagem com Foco em Qualidade">
 </header>
 
-<nav class="menu-header">
+<nav class="menu-header" aria-label="Navegação principal">
   <button onclick="scrollToSection('historia')">Minha História</button>
   <button onclick="scrollToSection('diferenciais')">Por Que Eu?</button>
   <button onclick="scrollToSection('moveis')">Serviços Feitos</button>
@@ -58,25 +61,25 @@
 <section id="diferenciais" class="secao-padrao">
   <h2>Por que me Escolher para Montar seu Móvel?</h2>
   <p class="subtitulo-secao">Aqui é serviço de confiança, feito com cuidado e atenção.</p>
-  
+
   <div class="grid-diferenciais">
     <div class="card-diferencial">
-      <div class="icone-dif">🛠️</div>
+      <div class="icone-dif" aria-hidden="true">🛠️</div>
       <h3>Ferramentas de Primeira</h3>
       <p>Uso as ferramentas certas (como nível a laser) para garantir que seu móvel fique firme, reto e não caia.</p>
     </div>
     <div class="card-diferencial">
-      <div class="icone-dif">🧹</div>
+      <div class="icone-dif" aria-hidden="true">🧹</div>
       <h3>Deixo Tudo Limpinho</h3>
       <p>Respeito seu espaço. Trabalho de forma organizada e recolho o lixo e a sujeira depois que o serviço termina.</p>
     </div>
     <div class="card-diferencial">
-      <div class="icone-dif">🛡️</div>
+      <div class="icone-dif" aria-hidden="true">🛡️</div>
       <h3>Garantia no Serviço</h3>
       <p>Se deu algum problema na montagem, eu volto e arrumo! Ofereço garantia para você ficar tranquilo.</p>
     </div>
     <div class="card-diferencial">
-      <div class="icone-dif">⏱️</div>
+      <div class="icone-dif" aria-hidden="true">⏱️</div>
       <h3>Chego na Hora Combinada</h3>
       <p>Seu tempo é importante. Cumpro o horário marcado e te aviso se acontecer algum imprevisto. Comunicação clara sempre!</p>
     </div>
@@ -151,7 +154,7 @@
   <p class="subtitulo-secao">Serviço de confiança garantido.</p>
   <form id="formOrcamento">
     <input type="text" name="nome" placeholder="Seu Nome Completo" required>
-    <input type="email" name="email" placeholder="Seu Email (Se quiser, não é obrigatório)" >
+    <input type="email" name="email" placeholder="Seu Email (Se quiser, não é obrigatório)">
     <input type="tel" id="telefone" name="telefone" placeholder="Seu WhatsApp (DDD + Número) - Essencial!" required inputmode="numeric" maxlength="15">
     <input type="text" name="tipo" placeholder="O que você precisa montar? (Guarda-Roupa, Cozinha, etc.)" required>
     <textarea name="mensagem" placeholder="Algum detalhe extra? Onde é a montagem? (Opcional)" rows="4"></textarea>
@@ -162,28 +165,28 @@
 
 <div class="botao-inicio" onclick="scrollToTop()">Voltar ao Topo</div>
 
-<div id="modalAvaliacao" class="modal-overlay">
+<div id="modalAvaliacao" class="modal-overlay" aria-hidden="true">
   <div class="modal-content">
-    <span class="fechar-modal" onclick="closeModal('modalAvaliacao')">&times;</span>
+    <button class="fechar-modal" onclick="closeModal('modalAvaliacao')" aria-label="Fechar">&times;</button>
     <h3 id="modalNome"></h3>
     <p id="modalTexto"></p>
   </div>
 </div>
 
-<div id="lightbox" class="modal-overlay lightbox-overlay">
-  <span class="fechar-modal" onclick="closeModal('lightbox')">&times;</span>
+<div id="lightbox" class="modal-overlay lightbox-overlay" aria-hidden="true">
+  <button class="fechar-modal" onclick="closeModal('lightbox')" aria-label="Fechar">&times;</button>
   <img id="lightboxImg" src="assets/movel1.jpg" alt="Ampliado">
   <p id="lightboxCaption"></p>
 </div>
 
-<div class="card-notificacao" id="cardNotif"></div>
+<div class="card-notificacao" id="cardNotif" role="status" aria-live="polite" style="display:none;"></div>
 
-<div class="mensagem-bem-vindo" id="bemvindo">
+<div class="mensagem-bem-vindo" id="bemvindo" style="display:none;">
   <p>Precisa de um montador experiente para seu móvel?</p>
   <button onclick="scrollToSection('orcamento'); document.getElementById('bemvindo').style.display='none'">Orçamento Rápido Agora!</button>
 </div>
 
-<a href="#" id="btnWhatsappFloat" class="whatsapp-float" target="_blank" title="Falar no WhatsApp Imediato">
+<a href="#" id="btnWhatsappFloat" class="whatsapp-float" target="_blank" title="Falar no WhatsApp Imediato" aria-label="WhatsApp">
   <img src="assets/whatsapp.png" alt="WhatsApp">
 </a>
 
